@@ -6,12 +6,11 @@
 }
 
 button{
-
   border: 0;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 .img-size{
-  width: 3rem;
+  width: 2rem;
 }
 .button1{
   background-color: white;
