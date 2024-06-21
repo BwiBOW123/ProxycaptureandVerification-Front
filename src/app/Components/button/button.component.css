@@ -1,0 +1,35 @@
+.non-active{
+  display: none;
+}
+.active{
+  display: inline;
+}
+
+button{
+
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+.img-size{
+  width: 3rem;
+}
+.button1{
+  background-color: white;
+  padding: 0.75rem;
+}
+.button1:hover{
+  background-color:rgb(243, 243, 243)
+}
+.Isactive{
+  background-color:rgb(243, 243, 243)
+}
+.button2{
+  background-color: rgb(0, 40, 80);
+  color: white;
+  padding: 0.3rem 0.7rem;
+}
+.button2:hover{
+  background-color: rgb(18, 84, 185);
+  border-radius: 20px;
+}
+

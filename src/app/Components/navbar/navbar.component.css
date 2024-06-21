@@ -1,0 +1,39 @@
+.navbar{
+  background-color: rgb(0, 40, 80);
+  width: 100vw;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+p{
+  color: white;
+}
+.icon{
+  width: 3rem;
+}
+
+.text-white{
+  color: white;
+}
+
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+.Menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
