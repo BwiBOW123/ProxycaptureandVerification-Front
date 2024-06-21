@@ -1,0 +1,41 @@
+.non-active{
+  display: none;
+}
+.active{
+  display: inline;
+}
+.button1{
+  background-color: white;
+}
+.button1:hover{
+  background-color:rgb(243, 243, 243)
+}
+.Isactive{
+  background-color:rgb(243, 243, 243)
+}
+.button2{
+  background-color: rgb(0, 40, 80);
+  color: white;
+  padding: 0.3rem 0.7rem;
+}
+.button2:hover{
+  background-color: rgb(18, 84, 185);
+  border-radius: 20px;
+}
+
+.flex{
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  overflow: hidden;
+}
+
+.top-bar{
+  width: 100%;
+  height: 3rem;
+  background-color: #1254B9;
+}
