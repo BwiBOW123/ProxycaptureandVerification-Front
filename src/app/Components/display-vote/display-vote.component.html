@@ -1,3 +1,95 @@
 <div class="display-box">
   <div class="top-bar"></div>
+  @if(questions.length != 0){
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" action="">
+      <div class="head-info">
+        <section class="item">
+          <label class="tag-label" for=""><p>ชื่อ - นามสกุล (ผู้ถือหุ้น)</p></label>
+          <input type="text" formControlName="Name" >
+        </section>
+        <section class="item">
+          <label class="tag-label" for=""><p>มอบฉันทะให้</p></label>
+          <input type="text" formControlName="offerProxy">
+        </section>
+        <section class="item">
+          <label class="tag-label" for=""><p>ลายเซ็นผู้มอบฉันทะ</p></label>
+          <div class="flexbox">
+            <div class="checkbox-wrapper-33">
+              <label class="checkbox">
+                <input (click)="onSubmit()" class="checkbox__trigger visuallyhidden" type="radio" formControlName="signature" name="signature" [value]="'มี'"/>
+                <span class="checkbox__symbol">
+                  <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg"><path d="M4 14l8 7L24 7"></path></svg>
+                </span>
+                <p class="checkbox__textwrapper">มี</p>
+              </label>
+            </div>
+            <div class="checkbox-wrapper-33">
+              <label class="checkbox">
+                <input  class="checkbox__trigger visuallyhidden" type="radio" formControlName="signature" name="signature" [value]="'ไม่มี'"/>
+                <span class="checkbox__symbol">
+                  <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg"><path d="M4 14l8 7L24 7"></path></svg>
+                </span>
+                <p (click)="onSubmit()" class="checkbox__textwrapper">ไม่มี</p>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="tablebox">
+        <table class="fixed_header">
+          <thead>
+            <tr>
+              <th>วาระที่</th>
+              <th>เห็นด้วย</th>
+              <th>ไม่เห็นด้วย</th>
+              <th>งดออกเสียง</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (quest of questions; track $index) {
+              <tr>
+                <td>{{quest.name}}</td>
+                <td>
+                  <div class="checkbox-wrapper-33">
+                    <label class="checkbox">
+                      <input formControlName="{{quest.name}}" name="{{quest.name}}" value="{{quest.ans1}}" class="checkbox__trigger visuallyhidden" type="radio" />
+                      <span class="checkbox__symbol">
+                        <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4 14l8 7L24 7"></path>
+                        </svg>
+                      </span>
+                    </label>
+                    </div>
+                </td>
+                <td>
+                  <div class="checkbox-wrapper-33">
+                    <label class="checkbox">
+                      <input formControlName="{{quest.name}}" name="{{quest.name}}" value="{{quest.ans2}}" class="checkbox__trigger visuallyhidden" type="radio" />
+                      <span class="checkbox__symbol">
+                        <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4 14l8 7L24 7"></path>
+                        </svg>
+                      </span>
+                    </label>
+                    </div>
+                </td>
+                <td>
+                  <div class="checkbox-wrapper-33">
+                    <label class="checkbox">
+                      <input formControlName="{{quest.name}}" name="{{quest.name}}" value="{{quest.ans3}}" class="checkbox__trigger visuallyhidden" type="radio" />
+                      <span class="checkbox__symbol">
+                        <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4 14l8 7L24 7"></path>
+                        </svg>
+                      </span>
+                    </label>
+                    </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+  </form>
+  }
 </div>

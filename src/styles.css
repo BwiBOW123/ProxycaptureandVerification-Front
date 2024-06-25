@@ -8,31 +8,29 @@
   font-family: "Roboto", sans-serif;
   font-style: normal;
 }
-
+ul{
+  list-style: none;
+}
 .container{
+  overflow-x: hidden;
   display: grid;
   width: 100vw;
   height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows: 0.096fr 0.050fr 1fr;
+  grid-template-columns: 0.4fr 1fr 0.5fr;
   grid-template-areas:
-  "nav"
-  "tool"
-  "container-content";
+  "nav nav nav"
+  "tool tool tool"
+  "display1 display2 display3";
 }
 
-.container-content{
-  display: grid;
-  width: 100%;
-  height: 100%;
-  grid-template-columns: 0.3fr 1fr 0.5fr;
-  grid-template-areas:"display1 display2 display3";
-  grid-gap: 1rem;
-  padding: 1rem;
+html,body{
+  overflow-x: hidden;
 }
+
 
 .nav{
-  background-color: aquamarine;
   grid-area: nav;
 }
 
@@ -40,15 +38,18 @@
   grid-area: tool;
 }
 .display1{
+  padding: 1rem;
   grid-area: display1;
 
 }
 
 .display2{
+  padding: 1rem 0 1rem 0 ;
   grid-area: display2;
 }
 
 .display3{
+  padding: 1rem;
   grid-area: display3;
 }
 /* width */

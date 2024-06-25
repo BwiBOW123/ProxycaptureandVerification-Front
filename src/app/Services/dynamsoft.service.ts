@@ -90,29 +90,32 @@ export class DynamsoftService {
   }
   cuntFolder:number = -1
   async processAcquiredImages():Promise<void>{
-    let Doc:Document = {barcode:"",pages:[]}
+    let doc:Document = {barcode:"",pages:[]}
     for (let index = 0; index < this.DWObject.HowManyImagesInBuffer; index++) {
       let base64 = await this.decodeBase64([index])
       let code = await this.decodeBarcode(base64)
-      if(this.dataService.getDocumentData().find(value=>value.barcode == code) == undefined){
-        if(code != this.barcode){
-          this.cuntFolder++
-          Doc.barcode = code
-          Doc.pages.push(base64)
-          this.dataService.getDocumentData().push(Doc)
-          this.barcode = code
-        }else{
-          this.dataService.getDocumentData()[this.cuntFolder].pages.push(base64)
-        }
-      }
+      await this.setDocument(code,base64,doc)
+      doc = {barcode:"",pages:[]}
     }
+    this.dataService.setSrcImage(this.dataService.getDocumentData()[0].pages[0])
     if (this.DWObject) {
       this.DWObject.RemoveAllImages();
     }
     console.log(this.dataService.getDocumentData())
   }
 
-
+  async setDocument(code:string,base64:string,doc:Document):Promise<void>{
+    if(code != this.barcode){
+      this.cuntFolder++
+      this.dataService.getDocumentData().push(doc)
+      this.dataService.getDocumentData()[this.cuntFolder].pages.length = 0
+      this.dataService.getDocumentData()[this.cuntFolder].barcode = code
+      this.dataService.getDocumentData()[this.cuntFolder].pages.push(base64)
+      this.barcode = code
+    }else{
+      this.dataService.getDocumentData()[this.cuntFolder].pages.push(base64)
+    }
+  }
   async decodeBase64(index :[number]):Promise<string>{
     return new Promise((resole,reject)=>{
       try {
@@ -137,4 +140,6 @@ export class DynamsoftService {
       }
     })
   }
+
+
 }
