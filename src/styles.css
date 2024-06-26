@@ -12,17 +12,7 @@ ul{
   list-style: none;
 }
 .container{
-  overflow-x: hidden;
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.096fr 0.050fr 1fr;
-  grid-template-columns: 0.4fr 1fr 0.5fr;
-  grid-template-areas:
-  "nav nav nav"
-  "tool tool tool"
-  "display1 display2 display3";
+  margin: 1rem;
 }
 
 html,body{
@@ -30,28 +20,6 @@ html,body{
 }
 
 
-.nav{
-  grid-area: nav;
-}
-
-.tool{
-  grid-area: tool;
-}
-.display1{
-  padding: 1rem;
-  grid-area: display1;
-
-}
-
-.display2{
-  padding: 1rem 0 1rem 0 ;
-  grid-area: display2;
-}
-
-.display3{
-  padding: 1rem;
-  grid-area: display3;
-}
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
