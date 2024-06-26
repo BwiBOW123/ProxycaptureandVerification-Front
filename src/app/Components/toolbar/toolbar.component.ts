@@ -22,6 +22,8 @@ export class ToolbarComponent implements OnInit {
     this.folder = this.dataservice.getFolder()
   }
 
+
+
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
       if(event.keyCode==37){
@@ -49,7 +51,7 @@ export class ToolbarComponent implements OnInit {
     this.dynamsoftService.acquireImage()
   }
 
-  path_img = ['../../../assets/img/print.png','../../../assets/img/fit_screen.png','../../../assets/img/open.png','../../../assets/img/arrow_back.png','../../../assets/img/arrow_forward.png','../../../assets/img/check.png','../../../assets/img/cancel.png']
+  path_img = ['../../../assets/img/print.png','../../../assets/img/zoom_in.png','../../../assets/img/zoom_out.png','../../../assets/img/fit_screen.png','../../../assets/img/open.png','../../../assets/img/arrow_back.png','../../../assets/img/arrow_forward.png','../../../assets/img/check.png','../../../assets/img/cancel.png']
 
   fitToWindow(){
     let img = document.getElementsByClassName("Document-img")[0] as HTMLElement
@@ -59,6 +61,26 @@ export class ToolbarComponent implements OnInit {
     let img = document.getElementsByClassName("Document-img")[0] as HTMLElement
     img.style.width = "100%"
   }
+
+  currentWidth: number = 100; // Initial width as a percentage
+
+  zoomIn() {
+    this.currentWidth += 10; // Increase width by 10%
+    this.applyZoom();
+  }
+
+  zoomOut() {
+    if (this.currentWidth > 10) { // Ensure width doesn't go below 10%
+      this.currentWidth -= 10; // Decrease width by 10%
+      this.applyZoom();
+    }
+  }
+
+  applyZoom() {
+    const img = document.getElementsByClassName("Document-img")[0] as HTMLElement;
+    img.style.width = `${this.currentWidth}%`;
+  }
+
   submit(){
     console.log(this.dataservice.getVote())
   }

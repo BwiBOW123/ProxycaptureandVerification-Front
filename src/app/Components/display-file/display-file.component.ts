@@ -31,12 +31,14 @@ export class DisplayFileComponent {
       this.dataservice.setSrcImage(this.dataservice.getDocumentData()[Number(input.id.split("-")[0].slice(6))].pages[Number(input.id.split("-")[1].slice(4))])
       this.dataservice.setPage(Number(input.id.split("-")[1].slice(4)))
       this.dataservice.setFolder(Number(input.id.split("-")[0].slice(6)))
-      console.log("Page:"+this.dataservice.getPage(),"Folder"+this.dataservice.getFolder())
       let cntInput = inputs.filter(value=>value.checked === true).length
       let headInput = document.getElementById(input.id.split("-")[0]) as HTMLInputElement;
+      let textStatus = document.getElementById(""+this.dataservice.getDocumentData()[Number(input.id.split("-")[0].slice(6))].barcode) as HTMLParagraphElement
       if(cntInput >= maxInput){
+        textStatus.innerHTML = ":Complete"
         headInput.checked = true
       }else{
+        textStatus.innerHTML = ":Pending"
         headInput.checked = false
       }
     }

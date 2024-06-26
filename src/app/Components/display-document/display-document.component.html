@@ -1,8 +1,18 @@
-<div class="display-box">
-  <div class="top-bar"></div>
-  <div class="content-img">
-    <div id="dwtcontrolContainer"></div>
-    <img class="Document-img" src="data:image/jpg;base64,{{SrcImage}}" alt="">
+@if(SrcImage != ""){
+  <div class="display-box bg-img">
+    <div class="top-bar"></div>
+    <div class="content-img">
+      <div id="dwtcontrolContainer"></div>
+      <img class="Document-img" src="data:image/jpg;base64,{{SrcImage}}" alt="">
+    </div>
   </div>
+}@else {
+  <div class="display-box">
+    <div class="top-bar"></div>
+    <div class="content-img">
+      <div id="dwtcontrolContainer"></div>
+      <img class="Document-img" src="data:image/jpg;base64,{{SrcImage}}" alt="">
+    </div>
+  </div>
+}
 
-</div>

@@ -2,12 +2,14 @@
   <div class="flex">
     <div>
       <Bank-button (onClick)="dynamsoftRunProcess()"  [id]="0" [Src]="path_img[0]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
-      <Bank-button (onClick)="fitToWindow()" [id]="1" [Src]="path_img[1]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
-      <Bank-button (onClick)="fitToScreen()" [id]="2" [Src]="path_img[2]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
-      <Bank-button (onClick)="prevPage()" [id]="3" [Src]="path_img[3]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
-      <Bank-button (onClick)="nextPage()" [id]="4" [Src]="path_img[4]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
-      <Bank-button (onClick)="submit()" [id]="5" [Src]="path_img[5]" [ClassActive]="'active'" [Class_Style]="'button1 w-10 h-10'" [text]="''"></Bank-button>
-      <Bank-button  [id]="6" [Src]="path_img[6]" [ClassActive]="'active'" [Class_Style]="'button1 w-10 h-10'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="zoomIn()" [id]="0" [Src]="path_img[1]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="zoomOut()" [id]="0" [Src]="path_img[2]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="fitToWindow()" [id]="1" [Src]="path_img[3]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="fitToScreen()" [id]="2" [Src]="path_img[4]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="prevPage()" [id]="3" [Src]="path_img[5]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="nextPage()" [id]="4" [Src]="path_img[6]" [ClassActive]="'active'" [Class_Style]="'button1'" [text]="''"></Bank-button>
+      <Bank-button (onClick)="submit()" [id]="5" [Src]="path_img[7]" [ClassActive]="'active'" [Class_Style]="'button1 w-10 h-10'" [text]="''"></Bank-button>
+      <Bank-button  [id]="6" [Src]="path_img[8]" [ClassActive]="'active'" [Class_Style]="'button1 w-10 h-10'" [text]="''"></Bank-button>
     </div>
     <div>
       <p class="px-10 text-blue-500">100%</p>
