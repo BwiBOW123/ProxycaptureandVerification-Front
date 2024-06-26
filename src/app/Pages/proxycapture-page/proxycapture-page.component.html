@@ -1,6 +1,7 @@
-<div class="container">
+<div>
   <div class="nav"><app-navbar></app-navbar></div>
-  <div class="tool"><app-toolbar></app-toolbar></div>
+<div class="tool"><app-toolbar></app-toolbar></div>
+<div class="container">
   <div class="display1">
     <app-display-file></app-display-file>
   </div>
@@ -11,4 +12,7 @@
     <app-display-vote></app-display-vote>
   </div>
 </div>
+<app-message-box [textBarcode]="MessageBox.documentCode" [callYes]="MessageBox.yes" [callNo]="MessageBox.no" [isOpen]="MessageBox.open" [isProcessBox]="MessageBox.type" [textHead]="MessageBox.head_message" [textContent]="MessageBox.content_message"></app-message-box>
+</div>
 <router-outlet></router-outlet>
+

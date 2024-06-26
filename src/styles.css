@@ -16,20 +16,14 @@ ul{
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.096fr 0.050fr 1fr;
-  grid-template-columns: 0.4fr 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-  "nav nav nav"
-  "tool tool tool"
   "display1 display2 display3";
 }
 
 html,body{
   overflow-x: hidden;
 }
-
-
 .nav{
   grid-area: nav;
 }
@@ -38,18 +32,18 @@ html,body{
   grid-area: tool;
 }
 .display1{
-  padding: 1rem;
+  padding: 0.5rem;
   grid-area: display1;
 
 }
 
 .display2{
-  padding: 1rem 0 1rem 0 ;
+  padding: 0.5rem 0 0.5rem 0 ;
   grid-area: display2;
 }
 
 .display3{
-  padding: 1rem;
+  padding: 0.5rem;
   grid-area: display3;
 }
 /* width */

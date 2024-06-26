@@ -18,6 +18,7 @@ export class DisplayFileComponent {
     this.documentdataSubscription = this.dataservice.documentdata$.subscribe(newData=>{
       this.documentdata = newData
     })
+    //this.dataservice.setDocumentData([{barcode:"123456789as0",pages:["Page1","Page2","Page3"]}])
   }
   ngOnDestroy(): void {
     this.documentdataSubscription.unsubscribe();

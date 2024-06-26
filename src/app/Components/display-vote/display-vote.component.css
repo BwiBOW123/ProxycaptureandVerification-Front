@@ -64,9 +64,7 @@ input[type="text"]{
   --t-fast: 0.2s;
   --e-in: ease-in;
   --e-out: cubic-bezier(0.11, 0.29, 0.18, 0.98);
-
 }
-
 .checkbox-wrapper-33 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);

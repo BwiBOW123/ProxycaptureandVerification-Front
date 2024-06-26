@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {Document} from '../Models/Models'
+import {Document,MessageInfo} from '../Models/Models'
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +8,7 @@ export class DataService {
 
   constructor() {}
 
+  private MessageBox= new BehaviorSubject<{}>({});
   private page = new BehaviorSubject<number>(-1);
   private folder = new BehaviorSubject<number>(0);
   private documentdata = new BehaviorSubject<Document[]>([]);
@@ -18,6 +19,8 @@ export class DataService {
   SrcImage$ = this.SrcImage.asObservable();
   page$ = this.page.asObservable();
   folder$ = this.folder.asObservable();
+  MessageBox$ = this.MessageBox.asObservable();
+
 
   //getter method
 
@@ -36,6 +39,9 @@ export class DataService {
   public getFolder(): number {
     return this.folder.getValue();
   }
+  public getShowMsg(): {} {
+    return this.MessageBox.getValue();
+  }
 
   //setter method
   public setVote(newData: {}): void {
@@ -50,8 +56,10 @@ export class DataService {
   public setPage(newData:number): void {
     this.page.next(newData);
   }
-
   public setFolder(newData:number): void {
     this.folder.next(newData);
+  }
+  public setMsg(newData:{}): void {
+    this.MessageBox.next(newData);
   }
 }

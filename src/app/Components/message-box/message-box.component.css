@@ -1,0 +1,104 @@
+.message1.message-bar{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
+  .message1 .message-box{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center;
+    width: 35rem;
+    height: 14rem;
+  }
+
+  .message1 .Box{
+    position: absolute;
+    background-color: white;
+    top: 40%;
+    left: 40%;
+    width: 35rem;
+    height: 15rem;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    z-index: 12;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .message1 .footbar{
+    width: 40rem;
+    height: 20px;
+    background-color: #1254B9;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .center-container{
+    height: 4.5rem;
+    overflow: hidden;
+    overflow-y: auto;
+    line-height: 20px;
+  }
+  .message1 .text-content{
+    font-size: 18px;
+    width: 28rem;
+    font-weight: 300;
+    line-height: 20px;
+    margin: 0 auto;
+  }
+
+  .message1 .text-head{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    width: 30rem;
+  }
+
+  .message1 hr{
+    margin-top: 10px;
+    width: 30rem;
+    height: 4px;
+    border-radius: 30px;
+    background-color: #1254B9;
+  }
+  .message1 button{
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+  .message1 button:hover{
+    background-color: #0C5AD3;
+    color: white;
+  }
+
+  .message1 .footer{
+    display: flex;
+    gap: 20px;
+  }
+
+
+  /* HTML: <div class="loader"></div> */
+  .loader {
+    --d:28px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    color: #0C5AD3;
+    box-shadow:
+      calc(1*var(--d))      calc(0*var(--d))     0 0,
+      calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+      calc(0*var(--d))      calc(1*var(--d))     0 2px,
+      calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+      calc(-1*var(--d))     calc(0*var(--d))     0 4px,
+      calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+      calc(0*var(--d))      calc(-1*var(--d))    0 6px;
+    animation: l27 1s infinite steps(8);
+  }
+  @keyframes l27 {
+    100% {transform: rotate(1turn)}
+  }

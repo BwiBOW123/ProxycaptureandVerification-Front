@@ -1,0 +1,46 @@
+@if (isOpen) {
+  <div class="message1 message-bar dialog">\
+    @if (isProcessBox) {
+      <div class=" Box">
+        <div class="message-box">
+          <div class="head">
+            <p class="text-head">Processing</p>
+            <hr>
+          </div>
+          <div class="center">
+            <div class="loader"></div>
+          </div>
+          <div class="footer">
+          </div>
+        </div>
+        <div class="footbar"></div>
+      </div>
+    }@else {
+      <div class=" Box">
+        <div class="message-box">
+          <div class="head">
+            <p class="text-head">{{textHead}}</p>
+            <hr>
+          </div>
+          <div class="center">
+            @if(textBarcode.length > 0){
+              <p class="text-content">{{textContent}}</p>
+              <div class="center-container">
+                @for (text of textBarcode; track $index) {
+                  <p class="text-content">{{text}}</p>
+              }
+              </div>
+            }@else {
+              <p class="text-content text-center">{{textContent}}</p>
+            }
+          </div>
+          <div class="footer">
+              <button (click)="onYes()">Yes</button>
+              <button (click)="onNo()">No</button>
+          </div>
+        </div>
+        <div class="footbar"></div>
+      </div>
+    }
+  </div>
+}

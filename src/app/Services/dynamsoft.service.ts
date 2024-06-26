@@ -3,7 +3,7 @@ import { BarcodeScanner } from 'dynamsoft-javascript-barcode';
 import Dynamsoft from 'dwt';
 import { WebTwain } from 'dwt/dist/types/WebTwain';
 import { DataService } from './data.service';
-import {Document} from '../Models/Models'
+import {Document,MessageInfo} from '../Models/Models'
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +78,12 @@ export class DynamsoftService {
               IfShowUI: false,
               PixelType: Dynamsoft.DWT.EnumDWT_PixelType.TWPT_GRAY,
               Resolution: 150,
+              OnSuccess: function() {
+                console.log("Image acquisition successful.");
+            },
+            OnFailure: function(errorCode:any, errorString:any) {
+                console.error("Image acquisition failed. Error code: " + errorCode + ", error message: " + errorString);
+            }
             });
         })
         .then(()=> {
@@ -90,6 +96,17 @@ export class DynamsoftService {
   }
   cuntFolder:number = -1
   async processAcquiredImages():Promise<void>{
+    let MsgInfo:MessageInfo = {
+      type:true,
+      head_message:"",
+      content_message:"",
+      open:true,
+      documentCode:[],
+      yes:()=>{},
+      no:()=>{}
+    }
+    MsgInfo.type = true
+    this.dataService.setMsg(MsgInfo)
     let doc:Document = {barcode:"",pages:[]}
     for (let index = 0; index < this.DWObject.HowManyImagesInBuffer; index++) {
       let base64 = await this.decodeBase64([index])
@@ -101,7 +118,38 @@ export class DynamsoftService {
     if (this.DWObject) {
       this.DWObject.RemoveAllImages();
     }
-    console.log(this.dataService.getDocumentData())
+
+
+    MsgInfo.type = false
+    MsgInfo.head_message = "Scan Document"
+    MsgInfo.content_message = "Do you want to continute scan document?"
+
+    MsgInfo.yes = ()=>{
+      this.acquireImage()
+      MsgInfo.open = false
+    }
+    MsgInfo.no = ()=>{
+      MsgInfo.head_message = "Scan Document"
+      MsgInfo.content_message = "Do you want confirm total number of Shareholder No.?\nTotal Sharegolder No.="+this.dataService.getDocumentData().length
+      this.dataService.getDocumentData().forEach((value,index)=>{
+        if(value.pages.length == 5){
+          MsgInfo.documentCode.push((index+1)+") "+value.barcode)
+        }else{
+          MsgInfo.documentCode.push((index+1)+") "+value.barcode+" มีจำนวนหน้า "+value.pages.length+" หน้า")
+        }
+      })
+      MsgInfo.yes = ()=>{
+        MsgInfo.type = true
+        setTimeout(() => {
+          MsgInfo.head_message = ""
+          MsgInfo.open = false
+        }, 3000);
+      }
+      MsgInfo.no = ()=>{
+        MsgInfo.open = false
+      }
+    }
+    this.dataService.setMsg(MsgInfo)
   }
 
   async setDocument(code:string,base64:string,doc:Document):Promise<void>{
