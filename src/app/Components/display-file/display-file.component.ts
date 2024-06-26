@@ -29,9 +29,9 @@ export class DisplayFileComponent {
     let maxInput = inputs.length
     if(maxInput != 0 && this.dataservice.getDocumentData()!=undefined){
       this.dataservice.setSrcImage(this.dataservice.getDocumentData()[Number(input.id.split("-")[0].slice(6))].pages[Number(input.id.split("-")[1].slice(4))])
-      this.dataservice.setPage(Number(input.id.split("-")[0].slice(6)))
-      this.dataservice.setFolder(Number(input.id.split("-")[1].slice(4)))
-      console.log(this.dataservice.getPage(),this.dataservice.getFolder())
+      this.dataservice.setPage(Number(input.id.split("-")[1].slice(4)))
+      this.dataservice.setFolder(Number(input.id.split("-")[0].slice(6)))
+      console.log("Page:"+this.dataservice.getPage(),"Folder"+this.dataservice.getFolder())
       let cntInput = inputs.filter(value=>value.checked === true).length
       let headInput = document.getElementById(input.id.split("-")[0]) as HTMLInputElement;
       if(cntInput >= maxInput){

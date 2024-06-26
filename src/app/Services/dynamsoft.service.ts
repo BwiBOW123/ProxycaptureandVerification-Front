@@ -143,6 +143,7 @@ export class DynamsoftService {
         setTimeout(() => {
           MsgInfo.head_message = ""
           MsgInfo.open = false
+          this.dataService.setQuestion(["asd","asd","asd"])
         }, 3000);
       }
       MsgInfo.no = ()=>{

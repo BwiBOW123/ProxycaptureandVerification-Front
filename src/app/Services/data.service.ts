@@ -14,12 +14,14 @@ export class DataService {
   private documentdata = new BehaviorSubject<Document[]>([]);
   private votedata = new BehaviorSubject<{}>({});
   private SrcImage = new BehaviorSubject<string>("");
+  private questions = new BehaviorSubject<string[]>([]);
   documentdata$ = this.documentdata.asObservable();
   votedata$ = this.votedata.asObservable();
   SrcImage$ = this.SrcImage.asObservable();
   page$ = this.page.asObservable();
   folder$ = this.folder.asObservable();
   MessageBox$ = this.MessageBox.asObservable();
+  questions$ = this.questions.asObservable();
 
 
   //getter method
@@ -43,6 +45,10 @@ export class DataService {
     return this.MessageBox.getValue();
   }
 
+  public getQuestion(): string[] {
+    return this.questions.getValue();
+  }
+
   //setter method
   public setVote(newData: {}): void {
     this.votedata.next(newData);
@@ -61,5 +67,8 @@ export class DataService {
   }
   public setMsg(newData:{}): void {
     this.MessageBox.next(newData);
+  }
+  public setQuestion(newData: string[]): void {
+    this.questions.next(newData);
   }
 }

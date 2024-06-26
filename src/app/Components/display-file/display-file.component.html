@@ -1,55 +1,58 @@
 <div class="display-box" >
   <div class="top-bar"></div>
-  <div class="treeview">
-    <div>
-      <div class="head-item">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
-        <p>Proxy Capture</p>
+  @if(documentdata.length > 0){
+    <div class="treeview">
+      <div>
+        <div class="head-item">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+          <p>Proxy Capture</p>
+        </div>
+        <ul>
+          @for (item of this.documentdata; track item;let idx1 = $index) {
+            <li>
+              <details>
+                <summary>
+                  <div class="item">
+                    <div class="checkbox-wrapper-33 head-folder" >
+                        <label class="checkbox">
+                          <input id="Folder{{idx1}}" class="checkbox__trigger visuallyhidden" type="checkbox" disabled/>
+                          <span class="checkbox__symbol">
+                            <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M4 14l8 7L24 7"></path>
+                            </svg>
+                          </span>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                        </label>
+                        </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+                  <p>{{item.barcode}}</p>
+                  </div>
+                </summary>
+                <ul>
+                  @for (page of item.pages; track page;let idx2 = $index) {
+                    <li class="item">
+                      <div class="checkbox-wrapper-33">
+                        <label class="checkbox">
+                          <input (click)="triggerOnclick($event)" class="checkbox__trigger visuallyhidden Folder{{idx1}}" id="Folder{{idx1}}-Page{{idx2}}" type="checkbox" />
+                          <span class="checkbox__symbol">
+                            <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M4 14l8 7L24 7"></path>
+                            </svg>
+                          </span>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                          <p>Page{{idx2+1}}</p>
+                        </label>
+                        </div>
+                    </li>
+                  }
+                </ul>
+              </details>
+            </li>
+          }
+        </ul>
       </div>
-      <ul>
-        @for (item of this.documentdata; track item;let idx1 = $index) {
-          <li>
-            <details>
-              <summary>
-                <div class="item">
-                  <div class="checkbox-wrapper-33 head-folder" >
-                      <label class="checkbox">
-                        <input id="Folder{{idx1}}" class="checkbox__trigger visuallyhidden" type="checkbox" disabled/>
-                        <span class="checkbox__symbol">
-                          <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 14l8 7L24 7"></path>
-                          </svg>
-                        </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-                      </label>
-                      </div>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
-                <p>{{item.barcode}}</p>
-                </div>
-              </summary>
-              <ul>
-                @for (page of item.pages; track page;let idx2 = $index) {
-                  <li class="item">
-                    <div class="checkbox-wrapper-33">
-                      <label class="checkbox">
-                        <input (click)="triggerOnclick($event)" class="checkbox__trigger visuallyhidden Folder{{idx1}}" id="Folder{{idx1}}-Page{{idx2}}" type="checkbox" />
-                        <span class="checkbox__symbol">
-                          <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 14l8 7L24 7"></path>
-                          </svg>
-                        </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-                        <p>Page{{idx2+1}}</p>
-                      </label>
-                      </div>
-                  </li>
-                }
-              </ul>
-            </details>
-          </li>
-        }
-      </ul>
-    </div>
 
-  </div>
+    </div>
+  }
+
 </div>

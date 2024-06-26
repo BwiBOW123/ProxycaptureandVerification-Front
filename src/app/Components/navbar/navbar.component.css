@@ -5,9 +5,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
-  min-height: 90px;
+  min-height: 80px;
   position: sticky;
-  top: 0;
 }
 p{
   color: white;

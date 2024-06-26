@@ -12,40 +12,14 @@ ul{
   list-style: none;
 }
 .container{
-  overflow-x: hidden;
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-  "display1 display2 display3";
+  margin: 1rem;
 }
 
 html,body{
   overflow-x: hidden;
 }
-.nav{
-  grid-area: nav;
-}
 
-.tool{
-  grid-area: tool;
-}
-.display1{
-  padding: 0.5rem;
-  grid-area: display1;
 
-}
-
-.display2{
-  padding: 0.5rem 0 0.5rem 0 ;
-  grid-area: display2;
-}
-
-.display3{
-  padding: 0.5rem;
-  grid-area: display3;
-}
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
