@@ -62,7 +62,7 @@ export class ToolbarComponent implements OnInit {
     img.style.width = "100%"
   }
 
-  currentWidth: number = 100; // Initial width as a percentage
+  currentWidth: number = 60; // Initial width as a percentage
 
   zoomIn() {
     this.currentWidth += 10; // Increase width by 10%

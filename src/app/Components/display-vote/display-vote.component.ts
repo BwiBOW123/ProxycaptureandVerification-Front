@@ -33,7 +33,7 @@ export class DisplayVoteComponent implements OnInit,OnDestroy{
       this.onSubmit()
       this.quesSubscription = this.dataservice.questions$.subscribe(newData=>{
         this.ques = newData
-        newData.forEach(()=>{
+        newData.forEach((value,index)=>{
           this.questions.push({
             name:"วาระที่1",
             ans1:"เห็นด้วย",
